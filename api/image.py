@@ -8,5 +8,6 @@ router = APIRouter(tags=["Image"])
 
 @router.post("/upload")
 async def upload_image(file: UploadFile = File(...)):
-    return image.validate_image(file)
+    image.validate_image(file)
+    return await  image.hash_image(file)
     
